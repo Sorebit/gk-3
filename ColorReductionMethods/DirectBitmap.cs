@@ -40,6 +40,26 @@ namespace ColorReductionMethods
                     SetPixel(i, j, bmp.GetPixel(i, j));
         }
 
+        /// <summary>
+        /// Copying contstructor.
+        /// </summary>
+        /// <param name="other">Other DirectBitmap.</param>
+        public DirectBitmap(DirectBitmap other)
+        {
+            if (other == null || this == other)
+                return;
+
+            Width = other.Width;
+            Height = other.Height;
+            Bits = new Int32[Width * Height];
+            BitsHandle = GCHandle.Alloc(Bits, GCHandleType.Pinned);
+            Bitmap = new Bitmap(Width, Height, Width * 4, PixelFormat.Format32bppPArgb, BitsHandle.AddrOfPinnedObject());
+
+            for (int i = 0; i < other.Width; i++)
+                for (int j = 0; j < other.Height; j++)
+                    SetPixel(i, j, other.GetPixel(i, j));
+        }
+
         public void SetPixel(int x, int y, Color colour)
         {
             int index = x + (y * Width);

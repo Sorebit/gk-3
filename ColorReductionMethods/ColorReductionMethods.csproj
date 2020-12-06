@@ -55,6 +55,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReductionMethods\ErrorDiffusionDithering.cs" />
+    <Compile Include="ReductionMethods\IReductionMethod.cs" />
+    <Compile Include="ReductionMethods\KMeansAlgorithm.cs" />
+    <Compile Include="ReductionMethods\PopularityMethod.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

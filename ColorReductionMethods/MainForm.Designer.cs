@@ -39,18 +39,43 @@ namespace ColorReductionMethods
             this.PropagationLabel = new System.Windows.Forms.Label();
             this.PopularityLabel = new System.Windows.Forms.Label();
             this.KMeansOutput = new System.Windows.Forms.PictureBox();
-            this.PropagationOutput = new System.Windows.Forms.PictureBox();
+            this.DitheringOutput = new System.Windows.Forms.PictureBox();
             this.PopularityOutput = new System.Windows.Forms.PictureBox();
             this.InputLayout = new System.Windows.Forms.TableLayoutPanel();
             this.SourceImageOutput = new System.Windows.Forms.PictureBox();
+            this.ControlsLayout = new System.Windows.Forms.FlowLayoutPanel();
+            this.KGroupBox = new System.Windows.Forms.GroupBox();
+            this.KLabel = new System.Windows.Forms.Label();
+            this.KNumeric = new System.Windows.Forms.NumericUpDown();
+            this.KrgbGroupBox = new System.Windows.Forms.GroupBox();
+            this.KbLabel = new System.Windows.Forms.Label();
+            this.KgLabel = new System.Windows.Forms.Label();
+            this.KrLabel = new System.Windows.Forms.Label();
+            this.KbNumeric = new System.Windows.Forms.NumericUpDown();
+            this.KgNumeric = new System.Windows.Forms.NumericUpDown();
+            this.KrNumeric = new System.Windows.Forms.NumericUpDown();
+            this.ButtonGroup = new System.Windows.Forms.GroupBox();
+            this.StuckyButton = new System.Windows.Forms.Button();
+            this.PopularityButton = new System.Windows.Forms.Button();
+            this.BurkesButton = new System.Windows.Forms.Button();
+            this.KMeansButton = new System.Windows.Forms.Button();
+            this.FloydButton = new System.Windows.Forms.Button();
             this.MenuStrip.SuspendLayout();
             this.MainLayout.SuspendLayout();
             this.OutputLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KMeansOutput)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PropagationOutput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DitheringOutput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PopularityOutput)).BeginInit();
             this.InputLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SourceImageOutput)).BeginInit();
+            this.ControlsLayout.SuspendLayout();
+            this.KGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.KNumeric)).BeginInit();
+            this.KrgbGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.KbNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KgNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KrNumeric)).BeginInit();
+            this.ButtonGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuStrip
@@ -107,7 +132,7 @@ namespace ColorReductionMethods
             this.OutputLayout.Controls.Add(this.PropagationLabel, 1, 1);
             this.OutputLayout.Controls.Add(this.PopularityLabel, 2, 1);
             this.OutputLayout.Controls.Add(this.KMeansOutput, 0, 0);
-            this.OutputLayout.Controls.Add(this.PropagationOutput, 1, 0);
+            this.OutputLayout.Controls.Add(this.DitheringOutput, 1, 0);
             this.OutputLayout.Controls.Add(this.PopularityOutput, 2, 0);
             this.OutputLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OutputLayout.Location = new System.Drawing.Point(3, 286);
@@ -126,7 +151,7 @@ namespace ColorReductionMethods
             this.KMeansLabel.Name = "KMeansLabel";
             this.KMeansLabel.Size = new System.Drawing.Size(337, 24);
             this.KMeansLabel.TabIndex = 0;
-            this.KMeansLabel.Text = "KMeansLabel";
+            this.KMeansLabel.Text = "K-Means Alg.";
             this.KMeansLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PropagationLabel
@@ -137,7 +162,7 @@ namespace ColorReductionMethods
             this.PropagationLabel.Name = "PropagationLabel";
             this.PropagationLabel.Size = new System.Drawing.Size(337, 24);
             this.PropagationLabel.TabIndex = 1;
-            this.PropagationLabel.Text = "Error Propagation";
+            this.PropagationLabel.Text = "Error Diffusion Dithering";
             this.PropagationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PopularityLabel
@@ -148,7 +173,7 @@ namespace ColorReductionMethods
             this.PopularityLabel.Name = "PopularityLabel";
             this.PopularityLabel.Size = new System.Drawing.Size(338, 24);
             this.PopularityLabel.TabIndex = 2;
-            this.PopularityLabel.Text = "Popularity";
+            this.PopularityLabel.Text = "Popularity Method";
             this.PopularityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // KMeansOutput
@@ -158,20 +183,20 @@ namespace ColorReductionMethods
             this.KMeansOutput.Location = new System.Drawing.Point(3, 3);
             this.KMeansOutput.Name = "KMeansOutput";
             this.KMeansOutput.Size = new System.Drawing.Size(337, 247);
-            this.KMeansOutput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.KMeansOutput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.KMeansOutput.TabIndex = 3;
             this.KMeansOutput.TabStop = false;
             // 
-            // PropagationOutput
+            // DitheringOutput
             // 
-            this.PropagationOutput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PropagationOutput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PropagationOutput.Location = new System.Drawing.Point(346, 3);
-            this.PropagationOutput.Name = "PropagationOutput";
-            this.PropagationOutput.Size = new System.Drawing.Size(337, 247);
-            this.PropagationOutput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PropagationOutput.TabIndex = 4;
-            this.PropagationOutput.TabStop = false;
+            this.DitheringOutput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.DitheringOutput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DitheringOutput.Location = new System.Drawing.Point(346, 3);
+            this.DitheringOutput.Name = "DitheringOutput";
+            this.DitheringOutput.Size = new System.Drawing.Size(337, 247);
+            this.DitheringOutput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.DitheringOutput.TabIndex = 4;
+            this.DitheringOutput.TabStop = false;
             // 
             // PopularityOutput
             // 
@@ -180,7 +205,7 @@ namespace ColorReductionMethods
             this.PopularityOutput.Location = new System.Drawing.Point(689, 3);
             this.PopularityOutput.Name = "PopularityOutput";
             this.PopularityOutput.Size = new System.Drawing.Size(338, 247);
-            this.PopularityOutput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PopularityOutput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PopularityOutput.TabIndex = 5;
             this.PopularityOutput.TabStop = false;
             // 
@@ -190,6 +215,7 @@ namespace ColorReductionMethods
             this.InputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.InputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.InputLayout.Controls.Add(this.SourceImageOutput, 0, 0);
+            this.InputLayout.Controls.Add(this.ControlsLayout, 1, 0);
             this.InputLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InputLayout.Location = new System.Drawing.Point(3, 3);
             this.InputLayout.Name = "InputLayout";
@@ -205,9 +231,218 @@ namespace ColorReductionMethods
             this.SourceImageOutput.Location = new System.Drawing.Point(3, 3);
             this.SourceImageOutput.Name = "SourceImageOutput";
             this.SourceImageOutput.Size = new System.Drawing.Size(406, 271);
-            this.SourceImageOutput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.SourceImageOutput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.SourceImageOutput.TabIndex = 0;
             this.SourceImageOutput.TabStop = false;
+            // 
+            // ControlsLayout
+            // 
+            this.ControlsLayout.Controls.Add(this.KGroupBox);
+            this.ControlsLayout.Controls.Add(this.KrgbGroupBox);
+            this.ControlsLayout.Controls.Add(this.ButtonGroup);
+            this.ControlsLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ControlsLayout.Location = new System.Drawing.Point(415, 3);
+            this.ControlsLayout.Name = "ControlsLayout";
+            this.ControlsLayout.Size = new System.Drawing.Size(612, 271);
+            this.ControlsLayout.TabIndex = 1;
+            // 
+            // KGroupBox
+            // 
+            this.KGroupBox.Controls.Add(this.KLabel);
+            this.KGroupBox.Controls.Add(this.KNumeric);
+            this.KGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.KGroupBox.Name = "KGroupBox";
+            this.KGroupBox.Size = new System.Drawing.Size(200, 50);
+            this.KGroupBox.TabIndex = 3;
+            this.KGroupBox.TabStop = false;
+            this.KGroupBox.Text = "K";
+            // 
+            // KLabel
+            // 
+            this.KLabel.AutoSize = true;
+            this.KLabel.Location = new System.Drawing.Point(7, 21);
+            this.KLabel.Name = "KLabel";
+            this.KLabel.Size = new System.Drawing.Size(17, 13);
+            this.KLabel.TabIndex = 1;
+            this.KLabel.Text = "K:";
+            // 
+            // KNumeric
+            // 
+            this.KNumeric.Location = new System.Drawing.Point(74, 19);
+            this.KNumeric.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.KNumeric.Name = "KNumeric";
+            this.KNumeric.Size = new System.Drawing.Size(120, 20);
+            this.KNumeric.TabIndex = 0;
+            this.KNumeric.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // KrgbGroupBox
+            // 
+            this.KrgbGroupBox.Controls.Add(this.KbLabel);
+            this.KrgbGroupBox.Controls.Add(this.KgLabel);
+            this.KrgbGroupBox.Controls.Add(this.KrLabel);
+            this.KrgbGroupBox.Controls.Add(this.KbNumeric);
+            this.KrgbGroupBox.Controls.Add(this.KgNumeric);
+            this.KrgbGroupBox.Controls.Add(this.KrNumeric);
+            this.KrgbGroupBox.Location = new System.Drawing.Point(209, 3);
+            this.KrgbGroupBox.Name = "KrgbGroupBox";
+            this.KrgbGroupBox.Size = new System.Drawing.Size(200, 101);
+            this.KrgbGroupBox.TabIndex = 2;
+            this.KrgbGroupBox.TabStop = false;
+            this.KrgbGroupBox.Text = "Error Diffusion Dithering";
+            // 
+            // KbLabel
+            // 
+            this.KbLabel.AutoSize = true;
+            this.KbLabel.Location = new System.Drawing.Point(6, 75);
+            this.KbLabel.Name = "KbLabel";
+            this.KbLabel.Size = new System.Drawing.Size(23, 13);
+            this.KbLabel.TabIndex = 5;
+            this.KbLabel.Text = "Kb:";
+            this.KbLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // KgLabel
+            // 
+            this.KgLabel.AutoSize = true;
+            this.KgLabel.Location = new System.Drawing.Point(6, 49);
+            this.KgLabel.Name = "KgLabel";
+            this.KgLabel.Size = new System.Drawing.Size(23, 13);
+            this.KgLabel.TabIndex = 4;
+            this.KgLabel.Text = "Kg:";
+            this.KgLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // KrLabel
+            // 
+            this.KrLabel.AutoSize = true;
+            this.KrLabel.Location = new System.Drawing.Point(6, 22);
+            this.KrLabel.Name = "KrLabel";
+            this.KrLabel.Size = new System.Drawing.Size(20, 13);
+            this.KrLabel.TabIndex = 3;
+            this.KrLabel.Text = "Kr:";
+            this.KrLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // KbNumeric
+            // 
+            this.KbNumeric.Location = new System.Drawing.Point(47, 73);
+            this.KbNumeric.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.KbNumeric.Name = "KbNumeric";
+            this.KbNumeric.Size = new System.Drawing.Size(146, 20);
+            this.KbNumeric.TabIndex = 2;
+            this.KbNumeric.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.KbNumeric.ValueChanged += new System.EventHandler(this.KbNumeric_ValueChanged);
+            // 
+            // KgNumeric
+            // 
+            this.KgNumeric.Location = new System.Drawing.Point(47, 47);
+            this.KgNumeric.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.KgNumeric.Name = "KgNumeric";
+            this.KgNumeric.Size = new System.Drawing.Size(146, 20);
+            this.KgNumeric.TabIndex = 1;
+            this.KgNumeric.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.KgNumeric.ValueChanged += new System.EventHandler(this.KgNumeric_ValueChanged);
+            // 
+            // KrNumeric
+            // 
+            this.KrNumeric.Location = new System.Drawing.Point(47, 20);
+            this.KrNumeric.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.KrNumeric.Name = "KrNumeric";
+            this.KrNumeric.Size = new System.Drawing.Size(147, 20);
+            this.KrNumeric.TabIndex = 0;
+            this.KrNumeric.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.KrNumeric.ValueChanged += new System.EventHandler(this.KrNumeric_ValueChanged);
+            // 
+            // ButtonGroup
+            // 
+            this.ButtonGroup.Controls.Add(this.StuckyButton);
+            this.ButtonGroup.Controls.Add(this.PopularityButton);
+            this.ButtonGroup.Controls.Add(this.BurkesButton);
+            this.ButtonGroup.Controls.Add(this.KMeansButton);
+            this.ButtonGroup.Controls.Add(this.FloydButton);
+            this.ButtonGroup.Location = new System.Drawing.Point(415, 3);
+            this.ButtonGroup.Name = "ButtonGroup";
+            this.ButtonGroup.Size = new System.Drawing.Size(158, 200);
+            this.ButtonGroup.TabIndex = 4;
+            this.ButtonGroup.TabStop = false;
+            this.ButtonGroup.Text = "Methods";
+            // 
+            // StuckyButton
+            // 
+            this.StuckyButton.Location = new System.Drawing.Point(6, 136);
+            this.StuckyButton.Name = "StuckyButton";
+            this.StuckyButton.Size = new System.Drawing.Size(105, 23);
+            this.StuckyButton.TabIndex = 7;
+            this.StuckyButton.Text = "Stucky";
+            this.StuckyButton.UseVisualStyleBackColor = true;
+            this.StuckyButton.Click += new System.EventHandler(this.StuckyButton_Click);
+            // 
+            // PopularityButton
+            // 
+            this.PopularityButton.Location = new System.Drawing.Point(6, 49);
+            this.PopularityButton.Name = "PopularityButton";
+            this.PopularityButton.Size = new System.Drawing.Size(75, 23);
+            this.PopularityButton.TabIndex = 2;
+            this.PopularityButton.Text = "Popularity";
+            this.PopularityButton.UseVisualStyleBackColor = true;
+            // 
+            // BurkesButton
+            // 
+            this.BurkesButton.Location = new System.Drawing.Point(6, 107);
+            this.BurkesButton.Name = "BurkesButton";
+            this.BurkesButton.Size = new System.Drawing.Size(109, 23);
+            this.BurkesButton.TabIndex = 6;
+            this.BurkesButton.Text = "Burkes";
+            this.BurkesButton.UseVisualStyleBackColor = true;
+            this.BurkesButton.Click += new System.EventHandler(this.BurkesButton_Click);
+            // 
+            // KMeansButton
+            // 
+            this.KMeansButton.Location = new System.Drawing.Point(6, 19);
+            this.KMeansButton.Name = "KMeansButton";
+            this.KMeansButton.Size = new System.Drawing.Size(75, 23);
+            this.KMeansButton.TabIndex = 0;
+            this.KMeansButton.Text = "K-Means";
+            this.KMeansButton.UseVisualStyleBackColor = true;
+            // 
+            // FloydButton
+            // 
+            this.FloydButton.Location = new System.Drawing.Point(6, 78);
+            this.FloydButton.Name = "FloydButton";
+            this.FloydButton.Size = new System.Drawing.Size(133, 23);
+            this.FloydButton.TabIndex = 1;
+            this.FloydButton.Text = "Floyd-Steinberg";
+            this.FloydButton.UseVisualStyleBackColor = true;
+            this.FloydButton.Click += new System.EventHandler(this.FloydButton_Click);
             // 
             // MainForm
             // 
@@ -225,10 +460,20 @@ namespace ColorReductionMethods
             this.OutputLayout.ResumeLayout(false);
             this.OutputLayout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KMeansOutput)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PropagationOutput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DitheringOutput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PopularityOutput)).EndInit();
             this.InputLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SourceImageOutput)).EndInit();
+            this.ControlsLayout.ResumeLayout(false);
+            this.KGroupBox.ResumeLayout(false);
+            this.KGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.KNumeric)).EndInit();
+            this.KrgbGroupBox.ResumeLayout(false);
+            this.KrgbGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.KbNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KgNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KrNumeric)).EndInit();
+            this.ButtonGroup.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,10 +491,27 @@ namespace ColorReductionMethods
         private System.Windows.Forms.Label PropagationLabel;
         private System.Windows.Forms.Label PopularityLabel;
         private System.Windows.Forms.PictureBox KMeansOutput;
-        private System.Windows.Forms.PictureBox PropagationOutput;
+        private System.Windows.Forms.PictureBox DitheringOutput;
         private System.Windows.Forms.PictureBox PopularityOutput;
         private System.Windows.Forms.TableLayoutPanel InputLayout;
         private System.Windows.Forms.PictureBox SourceImageOutput;
+        private System.Windows.Forms.FlowLayoutPanel ControlsLayout;
+        private System.Windows.Forms.GroupBox KrgbGroupBox;
+        private System.Windows.Forms.Label KbLabel;
+        private System.Windows.Forms.Label KgLabel;
+        private System.Windows.Forms.Label KrLabel;
+        private System.Windows.Forms.NumericUpDown KbNumeric;
+        private System.Windows.Forms.NumericUpDown KgNumeric;
+        private System.Windows.Forms.NumericUpDown KrNumeric;
+        private System.Windows.Forms.GroupBox KGroupBox;
+        private System.Windows.Forms.Label KLabel;
+        private System.Windows.Forms.NumericUpDown KNumeric;
+        private System.Windows.Forms.GroupBox ButtonGroup;
+        private System.Windows.Forms.Button PopularityButton;
+        private System.Windows.Forms.Button FloydButton;
+        private System.Windows.Forms.Button KMeansButton;
+        private System.Windows.Forms.Button BurkesButton;
+        private System.Windows.Forms.Button StuckyButton;
     }
 }
 
