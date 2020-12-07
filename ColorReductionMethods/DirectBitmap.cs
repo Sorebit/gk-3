@@ -77,6 +77,12 @@ namespace ColorReductionMethods
             return result;
         }
 
+        public int GetPixelRaw(int x, int y)
+        {
+            int index = x + (y * Width);
+            return Bits[index];
+        }
+
         public void Dispose()
         {
             if (Disposed) return;

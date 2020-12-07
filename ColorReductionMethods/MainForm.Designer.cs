@@ -278,22 +278,25 @@ namespace ColorReductionMethods
             this.KNumeric.Size = new System.Drawing.Size(120, 20);
             this.KNumeric.TabIndex = 0;
             this.KNumeric.Value = new decimal(new int[] {
-            2,
+            16,
             0,
             0,
             0});
             // 
             // KrgbGroupBox
             // 
+            this.KrgbGroupBox.Controls.Add(this.StuckyButton);
             this.KrgbGroupBox.Controls.Add(this.KbLabel);
             this.KrgbGroupBox.Controls.Add(this.KgLabel);
+            this.KrgbGroupBox.Controls.Add(this.BurkesButton);
             this.KrgbGroupBox.Controls.Add(this.KrLabel);
             this.KrgbGroupBox.Controls.Add(this.KbNumeric);
+            this.KrgbGroupBox.Controls.Add(this.FloydButton);
             this.KrgbGroupBox.Controls.Add(this.KgNumeric);
             this.KrgbGroupBox.Controls.Add(this.KrNumeric);
             this.KrgbGroupBox.Location = new System.Drawing.Point(209, 3);
             this.KrgbGroupBox.Name = "KrgbGroupBox";
-            this.KrgbGroupBox.Size = new System.Drawing.Size(200, 101);
+            this.KrgbGroupBox.Size = new System.Drawing.Size(200, 192);
             this.KrgbGroupBox.TabIndex = 2;
             this.KrgbGroupBox.TabStop = false;
             this.KrgbGroupBox.Text = "Error Diffusion Dithering";
@@ -340,7 +343,7 @@ namespace ColorReductionMethods
             this.KbNumeric.Size = new System.Drawing.Size(146, 20);
             this.KbNumeric.TabIndex = 2;
             this.KbNumeric.Value = new decimal(new int[] {
-            2,
+            3,
             0,
             0,
             0});
@@ -358,7 +361,7 @@ namespace ColorReductionMethods
             this.KgNumeric.Size = new System.Drawing.Size(146, 20);
             this.KgNumeric.TabIndex = 1;
             this.KgNumeric.Value = new decimal(new int[] {
-            2,
+            3,
             0,
             0,
             0});
@@ -376,7 +379,7 @@ namespace ColorReductionMethods
             this.KrNumeric.Size = new System.Drawing.Size(147, 20);
             this.KrNumeric.TabIndex = 0;
             this.KrNumeric.Value = new decimal(new int[] {
-            2,
+            3,
             0,
             0,
             0});
@@ -384,11 +387,8 @@ namespace ColorReductionMethods
             // 
             // ButtonGroup
             // 
-            this.ButtonGroup.Controls.Add(this.StuckyButton);
             this.ButtonGroup.Controls.Add(this.PopularityButton);
-            this.ButtonGroup.Controls.Add(this.BurkesButton);
             this.ButtonGroup.Controls.Add(this.KMeansButton);
-            this.ButtonGroup.Controls.Add(this.FloydButton);
             this.ButtonGroup.Location = new System.Drawing.Point(415, 3);
             this.ButtonGroup.Name = "ButtonGroup";
             this.ButtonGroup.Size = new System.Drawing.Size(158, 200);
@@ -398,9 +398,9 @@ namespace ColorReductionMethods
             // 
             // StuckyButton
             // 
-            this.StuckyButton.Location = new System.Drawing.Point(6, 136);
+            this.StuckyButton.Location = new System.Drawing.Point(9, 157);
             this.StuckyButton.Name = "StuckyButton";
-            this.StuckyButton.Size = new System.Drawing.Size(105, 23);
+            this.StuckyButton.Size = new System.Drawing.Size(184, 23);
             this.StuckyButton.TabIndex = 7;
             this.StuckyButton.Text = "Stucky";
             this.StuckyButton.UseVisualStyleBackColor = true;
@@ -414,12 +414,13 @@ namespace ColorReductionMethods
             this.PopularityButton.TabIndex = 2;
             this.PopularityButton.Text = "Popularity";
             this.PopularityButton.UseVisualStyleBackColor = true;
+            this.PopularityButton.Click += new System.EventHandler(this.PopularityButton_Click);
             // 
             // BurkesButton
             // 
-            this.BurkesButton.Location = new System.Drawing.Point(6, 107);
+            this.BurkesButton.Location = new System.Drawing.Point(9, 128);
             this.BurkesButton.Name = "BurkesButton";
-            this.BurkesButton.Size = new System.Drawing.Size(109, 23);
+            this.BurkesButton.Size = new System.Drawing.Size(184, 23);
             this.BurkesButton.TabIndex = 6;
             this.BurkesButton.Text = "Burkes";
             this.BurkesButton.UseVisualStyleBackColor = true;
@@ -436,9 +437,9 @@ namespace ColorReductionMethods
             // 
             // FloydButton
             // 
-            this.FloydButton.Location = new System.Drawing.Point(6, 78);
+            this.FloydButton.Location = new System.Drawing.Point(9, 99);
             this.FloydButton.Name = "FloydButton";
-            this.FloydButton.Size = new System.Drawing.Size(133, 23);
+            this.FloydButton.Size = new System.Drawing.Size(184, 23);
             this.FloydButton.TabIndex = 1;
             this.FloydButton.Text = "Floyd-Steinberg";
             this.FloydButton.UseVisualStyleBackColor = true;

@@ -17,9 +17,9 @@ namespace ColorReductionMethods
         private readonly string rootPath;
         private DirectBitmap SourceImage;
         private DirectBitmap KMeansImage;
-        private DirectBitmap PopularityImage;
 
-        private ErrorDiffusionDithering Dithering;
+        private readonly ErrorDiffusionDithering Dithering;
+        private readonly PopularityMethod Popularity;
 
         public MainForm()
         {
@@ -29,7 +29,8 @@ namespace ColorReductionMethods
             OpenFileDialog.InitialDirectory = rootPath;
 
             // Initialize methods
-            Dithering = new ErrorDiffusionDithering(2, 2, 2);
+            Dithering = new ErrorDiffusionDithering(3, 3, 3);
+            Popularity = new PopularityMethod(() => (int)KNumeric.Value);
         }
 
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -39,7 +40,6 @@ namespace ColorReductionMethods
                 SourceImage = new DirectBitmap(OpenFileDialog.FileName);
                 SourceImageOutput.Image = SourceImage.Bitmap;
                 //KMeansOutput.Image = SourceImage.Bitmap;
-                //PopularityOutput.Image = SourceImage.Bitmap;
             }
         }
 
@@ -74,6 +74,12 @@ namespace ColorReductionMethods
         private void KbNumeric_ValueChanged(object sender, EventArgs e)
         {
             Dithering.Kb = (int)(sender as NumericUpDown).Value;
+        }
+
+        private void PopularityButton_Click(object sender, EventArgs e)
+        {
+            if (SourceImage == null) return;
+            PopularityOutput.Image = Popularity.Calculate(SourceImage).Bitmap;
         }
     }
 }
