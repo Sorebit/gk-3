@@ -44,22 +44,27 @@ namespace ColorReductionMethods
             this.InputLayout = new System.Windows.Forms.TableLayoutPanel();
             this.SourceImageOutput = new System.Windows.Forms.PictureBox();
             this.ControlsLayout = new System.Windows.Forms.FlowLayoutPanel();
-            this.KGroupBox = new System.Windows.Forms.GroupBox();
-            this.KLabel = new System.Windows.Forms.Label();
-            this.KNumeric = new System.Windows.Forms.NumericUpDown();
-            this.KrgbGroupBox = new System.Windows.Forms.GroupBox();
+            this.KMeansGroup = new System.Windows.Forms.GroupBox();
+            this.KMeansButton = new System.Windows.Forms.Button();
+            this.DitheringGroupBox = new System.Windows.Forms.GroupBox();
+            this.StuckyButton = new System.Windows.Forms.Button();
             this.KbLabel = new System.Windows.Forms.Label();
             this.KgLabel = new System.Windows.Forms.Label();
+            this.BurkesButton = new System.Windows.Forms.Button();
             this.KrLabel = new System.Windows.Forms.Label();
             this.KbNumeric = new System.Windows.Forms.NumericUpDown();
+            this.FloydButton = new System.Windows.Forms.Button();
             this.KgNumeric = new System.Windows.Forms.NumericUpDown();
             this.KrNumeric = new System.Windows.Forms.NumericUpDown();
-            this.ButtonGroup = new System.Windows.Forms.GroupBox();
-            this.StuckyButton = new System.Windows.Forms.Button();
+            this.PopularityBox = new System.Windows.Forms.GroupBox();
             this.PopularityButton = new System.Windows.Forms.Button();
-            this.BurkesButton = new System.Windows.Forms.Button();
-            this.KMeansButton = new System.Windows.Forms.Button();
-            this.FloydButton = new System.Windows.Forms.Button();
+            this.PopularityKLabel = new System.Windows.Forms.Label();
+            this.PopularityKNumeric = new System.Windows.Forms.NumericUpDown();
+            this.KMeansKLabel = new System.Windows.Forms.Label();
+            this.KMeansIterLabel = new System.Windows.Forms.Label();
+            this.KMeansKNumeric = new System.Windows.Forms.NumericUpDown();
+            this.KMeansIterNumeric = new System.Windows.Forms.NumericUpDown();
+            this.CreateImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStrip.SuspendLayout();
             this.MainLayout.SuspendLayout();
             this.OutputLayout.SuspendLayout();
@@ -69,13 +74,15 @@ namespace ColorReductionMethods
             this.InputLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SourceImageOutput)).BeginInit();
             this.ControlsLayout.SuspendLayout();
-            this.KGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.KNumeric)).BeginInit();
-            this.KrgbGroupBox.SuspendLayout();
+            this.KMeansGroup.SuspendLayout();
+            this.DitheringGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KbNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KgNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KrNumeric)).BeginInit();
-            this.ButtonGroup.SuspendLayout();
+            this.PopularityBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PopularityKNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KMeansKNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KMeansIterNumeric)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuStrip
@@ -91,7 +98,8 @@ namespace ColorReductionMethods
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.OpenToolStripMenuItem});
+            this.OpenToolStripMenuItem,
+            this.CreateImageToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -99,7 +107,7 @@ namespace ColorReductionMethods
             // OpenToolStripMenuItem
             // 
             this.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem";
-            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.OpenToolStripMenuItem.Text = "Open File...";
             this.OpenToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
@@ -237,69 +245,66 @@ namespace ColorReductionMethods
             // 
             // ControlsLayout
             // 
-            this.ControlsLayout.Controls.Add(this.KGroupBox);
-            this.ControlsLayout.Controls.Add(this.KrgbGroupBox);
-            this.ControlsLayout.Controls.Add(this.ButtonGroup);
+            this.ControlsLayout.Controls.Add(this.KMeansGroup);
+            this.ControlsLayout.Controls.Add(this.DitheringGroupBox);
+            this.ControlsLayout.Controls.Add(this.PopularityBox);
             this.ControlsLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ControlsLayout.Location = new System.Drawing.Point(415, 3);
             this.ControlsLayout.Name = "ControlsLayout";
             this.ControlsLayout.Size = new System.Drawing.Size(612, 271);
             this.ControlsLayout.TabIndex = 1;
             // 
-            // KGroupBox
+            // KMeansGroup
             // 
-            this.KGroupBox.Controls.Add(this.KLabel);
-            this.KGroupBox.Controls.Add(this.KNumeric);
-            this.KGroupBox.Location = new System.Drawing.Point(3, 3);
-            this.KGroupBox.Name = "KGroupBox";
-            this.KGroupBox.Size = new System.Drawing.Size(200, 50);
-            this.KGroupBox.TabIndex = 3;
-            this.KGroupBox.TabStop = false;
-            this.KGroupBox.Text = "K";
+            this.KMeansGroup.Controls.Add(this.KMeansIterNumeric);
+            this.KMeansGroup.Controls.Add(this.KMeansKNumeric);
+            this.KMeansGroup.Controls.Add(this.KMeansIterLabel);
+            this.KMeansGroup.Controls.Add(this.KMeansKLabel);
+            this.KMeansGroup.Controls.Add(this.KMeansButton);
+            this.KMeansGroup.Location = new System.Drawing.Point(3, 3);
+            this.KMeansGroup.Name = "KMeansGroup";
+            this.KMeansGroup.Size = new System.Drawing.Size(160, 105);
+            this.KMeansGroup.TabIndex = 4;
+            this.KMeansGroup.TabStop = false;
+            this.KMeansGroup.Text = "K-Means Algorithm";
             // 
-            // KLabel
+            // KMeansButton
             // 
-            this.KLabel.AutoSize = true;
-            this.KLabel.Location = new System.Drawing.Point(7, 21);
-            this.KLabel.Name = "KLabel";
-            this.KLabel.Size = new System.Drawing.Size(17, 13);
-            this.KLabel.TabIndex = 1;
-            this.KLabel.Text = "K:";
+            this.KMeansButton.Location = new System.Drawing.Point(6, 75);
+            this.KMeansButton.Name = "KMeansButton";
+            this.KMeansButton.Size = new System.Drawing.Size(148, 23);
+            this.KMeansButton.TabIndex = 0;
+            this.KMeansButton.Text = "K-Means (Bardzo wolne!)";
+            this.KMeansButton.UseVisualStyleBackColor = true;
+            this.KMeansButton.Click += new System.EventHandler(this.KMeansButton_Click);
             // 
-            // KNumeric
+            // DitheringGroupBox
             // 
-            this.KNumeric.Location = new System.Drawing.Point(74, 19);
-            this.KNumeric.Minimum = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            this.KNumeric.Name = "KNumeric";
-            this.KNumeric.Size = new System.Drawing.Size(120, 20);
-            this.KNumeric.TabIndex = 0;
-            this.KNumeric.Value = new decimal(new int[] {
-            16,
-            0,
-            0,
-            0});
+            this.DitheringGroupBox.Controls.Add(this.StuckyButton);
+            this.DitheringGroupBox.Controls.Add(this.KbLabel);
+            this.DitheringGroupBox.Controls.Add(this.KgLabel);
+            this.DitheringGroupBox.Controls.Add(this.BurkesButton);
+            this.DitheringGroupBox.Controls.Add(this.KrLabel);
+            this.DitheringGroupBox.Controls.Add(this.KbNumeric);
+            this.DitheringGroupBox.Controls.Add(this.FloydButton);
+            this.DitheringGroupBox.Controls.Add(this.KgNumeric);
+            this.DitheringGroupBox.Controls.Add(this.KrNumeric);
+            this.DitheringGroupBox.Location = new System.Drawing.Point(169, 3);
+            this.DitheringGroupBox.Name = "DitheringGroupBox";
+            this.DitheringGroupBox.Size = new System.Drawing.Size(160, 192);
+            this.DitheringGroupBox.TabIndex = 2;
+            this.DitheringGroupBox.TabStop = false;
+            this.DitheringGroupBox.Text = "Error Diffusion Dithering";
             // 
-            // KrgbGroupBox
+            // StuckyButton
             // 
-            this.KrgbGroupBox.Controls.Add(this.StuckyButton);
-            this.KrgbGroupBox.Controls.Add(this.KbLabel);
-            this.KrgbGroupBox.Controls.Add(this.KgLabel);
-            this.KrgbGroupBox.Controls.Add(this.BurkesButton);
-            this.KrgbGroupBox.Controls.Add(this.KrLabel);
-            this.KrgbGroupBox.Controls.Add(this.KbNumeric);
-            this.KrgbGroupBox.Controls.Add(this.FloydButton);
-            this.KrgbGroupBox.Controls.Add(this.KgNumeric);
-            this.KrgbGroupBox.Controls.Add(this.KrNumeric);
-            this.KrgbGroupBox.Location = new System.Drawing.Point(209, 3);
-            this.KrgbGroupBox.Name = "KrgbGroupBox";
-            this.KrgbGroupBox.Size = new System.Drawing.Size(200, 192);
-            this.KrgbGroupBox.TabIndex = 2;
-            this.KrgbGroupBox.TabStop = false;
-            this.KrgbGroupBox.Text = "Error Diffusion Dithering";
+            this.StuckyButton.Location = new System.Drawing.Point(9, 157);
+            this.StuckyButton.Name = "StuckyButton";
+            this.StuckyButton.Size = new System.Drawing.Size(145, 23);
+            this.StuckyButton.TabIndex = 7;
+            this.StuckyButton.Text = "Stucky";
+            this.StuckyButton.UseVisualStyleBackColor = true;
+            this.StuckyButton.Click += new System.EventHandler(this.StuckyButton_Click);
             // 
             // KbLabel
             // 
@@ -321,6 +326,16 @@ namespace ColorReductionMethods
             this.KgLabel.Text = "Kg:";
             this.KgLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // BurkesButton
+            // 
+            this.BurkesButton.Location = new System.Drawing.Point(9, 128);
+            this.BurkesButton.Name = "BurkesButton";
+            this.BurkesButton.Size = new System.Drawing.Size(145, 23);
+            this.BurkesButton.TabIndex = 6;
+            this.BurkesButton.Text = "Burkes";
+            this.BurkesButton.UseVisualStyleBackColor = true;
+            this.BurkesButton.Click += new System.EventHandler(this.BurkesButton_Click);
+            // 
             // KrLabel
             // 
             this.KrLabel.AutoSize = true;
@@ -333,14 +348,14 @@ namespace ColorReductionMethods
             // 
             // KbNumeric
             // 
-            this.KbNumeric.Location = new System.Drawing.Point(47, 73);
+            this.KbNumeric.Location = new System.Drawing.Point(74, 73);
             this.KbNumeric.Minimum = new decimal(new int[] {
             2,
             0,
             0,
             0});
             this.KbNumeric.Name = "KbNumeric";
-            this.KbNumeric.Size = new System.Drawing.Size(146, 20);
+            this.KbNumeric.Size = new System.Drawing.Size(80, 20);
             this.KbNumeric.TabIndex = 2;
             this.KbNumeric.Value = new decimal(new int[] {
             3,
@@ -349,16 +364,26 @@ namespace ColorReductionMethods
             0});
             this.KbNumeric.ValueChanged += new System.EventHandler(this.KbNumeric_ValueChanged);
             // 
+            // FloydButton
+            // 
+            this.FloydButton.Location = new System.Drawing.Point(9, 99);
+            this.FloydButton.Name = "FloydButton";
+            this.FloydButton.Size = new System.Drawing.Size(145, 23);
+            this.FloydButton.TabIndex = 1;
+            this.FloydButton.Text = "Floyd-Steinberg";
+            this.FloydButton.UseVisualStyleBackColor = true;
+            this.FloydButton.Click += new System.EventHandler(this.FloydButton_Click);
+            // 
             // KgNumeric
             // 
-            this.KgNumeric.Location = new System.Drawing.Point(47, 47);
+            this.KgNumeric.Location = new System.Drawing.Point(74, 47);
             this.KgNumeric.Minimum = new decimal(new int[] {
             2,
             0,
             0,
             0});
             this.KgNumeric.Name = "KgNumeric";
-            this.KgNumeric.Size = new System.Drawing.Size(146, 20);
+            this.KgNumeric.Size = new System.Drawing.Size(80, 20);
             this.KgNumeric.TabIndex = 1;
             this.KgNumeric.Value = new decimal(new int[] {
             3,
@@ -369,14 +394,14 @@ namespace ColorReductionMethods
             // 
             // KrNumeric
             // 
-            this.KrNumeric.Location = new System.Drawing.Point(47, 20);
+            this.KrNumeric.Location = new System.Drawing.Point(74, 19);
             this.KrNumeric.Minimum = new decimal(new int[] {
             2,
             0,
             0,
             0});
             this.KrNumeric.Name = "KrNumeric";
-            this.KrNumeric.Size = new System.Drawing.Size(147, 20);
+            this.KrNumeric.Size = new System.Drawing.Size(80, 20);
             this.KrNumeric.TabIndex = 0;
             this.KrNumeric.Value = new decimal(new int[] {
             3,
@@ -385,65 +410,115 @@ namespace ColorReductionMethods
             0});
             this.KrNumeric.ValueChanged += new System.EventHandler(this.KrNumeric_ValueChanged);
             // 
-            // ButtonGroup
+            // PopularityBox
             // 
-            this.ButtonGroup.Controls.Add(this.PopularityButton);
-            this.ButtonGroup.Controls.Add(this.KMeansButton);
-            this.ButtonGroup.Location = new System.Drawing.Point(415, 3);
-            this.ButtonGroup.Name = "ButtonGroup";
-            this.ButtonGroup.Size = new System.Drawing.Size(158, 200);
-            this.ButtonGroup.TabIndex = 4;
-            this.ButtonGroup.TabStop = false;
-            this.ButtonGroup.Text = "Methods";
-            // 
-            // StuckyButton
-            // 
-            this.StuckyButton.Location = new System.Drawing.Point(9, 157);
-            this.StuckyButton.Name = "StuckyButton";
-            this.StuckyButton.Size = new System.Drawing.Size(184, 23);
-            this.StuckyButton.TabIndex = 7;
-            this.StuckyButton.Text = "Stucky";
-            this.StuckyButton.UseVisualStyleBackColor = true;
-            this.StuckyButton.Click += new System.EventHandler(this.StuckyButton_Click);
+            this.PopularityBox.Controls.Add(this.PopularityButton);
+            this.PopularityBox.Controls.Add(this.PopularityKLabel);
+            this.PopularityBox.Controls.Add(this.PopularityKNumeric);
+            this.PopularityBox.Location = new System.Drawing.Point(335, 3);
+            this.PopularityBox.Name = "PopularityBox";
+            this.PopularityBox.Size = new System.Drawing.Size(160, 76);
+            this.PopularityBox.TabIndex = 3;
+            this.PopularityBox.TabStop = false;
+            this.PopularityBox.Text = "Popularity Method";
             // 
             // PopularityButton
             // 
-            this.PopularityButton.Location = new System.Drawing.Point(6, 49);
+            this.PopularityButton.Location = new System.Drawing.Point(6, 45);
             this.PopularityButton.Name = "PopularityButton";
-            this.PopularityButton.Size = new System.Drawing.Size(75, 23);
+            this.PopularityButton.Size = new System.Drawing.Size(148, 23);
             this.PopularityButton.TabIndex = 2;
             this.PopularityButton.Text = "Popularity";
             this.PopularityButton.UseVisualStyleBackColor = true;
             this.PopularityButton.Click += new System.EventHandler(this.PopularityButton_Click);
             // 
-            // BurkesButton
+            // PopularityKLabel
             // 
-            this.BurkesButton.Location = new System.Drawing.Point(9, 128);
-            this.BurkesButton.Name = "BurkesButton";
-            this.BurkesButton.Size = new System.Drawing.Size(184, 23);
-            this.BurkesButton.TabIndex = 6;
-            this.BurkesButton.Text = "Burkes";
-            this.BurkesButton.UseVisualStyleBackColor = true;
-            this.BurkesButton.Click += new System.EventHandler(this.BurkesButton_Click);
+            this.PopularityKLabel.AutoSize = true;
+            this.PopularityKLabel.Location = new System.Drawing.Point(7, 21);
+            this.PopularityKLabel.Name = "PopularityKLabel";
+            this.PopularityKLabel.Size = new System.Drawing.Size(17, 13);
+            this.PopularityKLabel.TabIndex = 1;
+            this.PopularityKLabel.Text = "K:";
             // 
-            // KMeansButton
+            // PopularityKNumeric
             // 
-            this.KMeansButton.Location = new System.Drawing.Point(6, 19);
-            this.KMeansButton.Name = "KMeansButton";
-            this.KMeansButton.Size = new System.Drawing.Size(75, 23);
-            this.KMeansButton.TabIndex = 0;
-            this.KMeansButton.Text = "K-Means";
-            this.KMeansButton.UseVisualStyleBackColor = true;
+            this.PopularityKNumeric.Location = new System.Drawing.Point(74, 19);
+            this.PopularityKNumeric.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.PopularityKNumeric.Name = "PopularityKNumeric";
+            this.PopularityKNumeric.Size = new System.Drawing.Size(80, 20);
+            this.PopularityKNumeric.TabIndex = 0;
+            this.PopularityKNumeric.Value = new decimal(new int[] {
+            16,
+            0,
+            0,
+            0});
             // 
-            // FloydButton
+            // KMeansKLabel
             // 
-            this.FloydButton.Location = new System.Drawing.Point(9, 99);
-            this.FloydButton.Name = "FloydButton";
-            this.FloydButton.Size = new System.Drawing.Size(184, 23);
-            this.FloydButton.TabIndex = 1;
-            this.FloydButton.Text = "Floyd-Steinberg";
-            this.FloydButton.UseVisualStyleBackColor = true;
-            this.FloydButton.Click += new System.EventHandler(this.FloydButton_Click);
+            this.KMeansKLabel.AutoSize = true;
+            this.KMeansKLabel.Location = new System.Drawing.Point(6, 22);
+            this.KMeansKLabel.Name = "KMeansKLabel";
+            this.KMeansKLabel.Size = new System.Drawing.Size(17, 13);
+            this.KMeansKLabel.TabIndex = 1;
+            this.KMeansKLabel.Text = "K:";
+            this.KMeansKLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // KMeansIterLabel
+            // 
+            this.KMeansIterLabel.AutoSize = true;
+            this.KMeansIterLabel.Location = new System.Drawing.Point(7, 50);
+            this.KMeansIterLabel.Name = "KMeansIterLabel";
+            this.KMeansIterLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.KMeansIterLabel.Size = new System.Drawing.Size(53, 13);
+            this.KMeansIterLabel.TabIndex = 2;
+            this.KMeansIterLabel.Text = "Iterations:";
+            this.KMeansIterLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // KMeansKNumeric
+            // 
+            this.KMeansKNumeric.Location = new System.Drawing.Point(74, 19);
+            this.KMeansKNumeric.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.KMeansKNumeric.Name = "KMeansKNumeric";
+            this.KMeansKNumeric.Size = new System.Drawing.Size(80, 20);
+            this.KMeansKNumeric.TabIndex = 3;
+            this.KMeansKNumeric.Value = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            // 
+            // KMeansIterNumeric
+            // 
+            this.KMeansIterNumeric.Location = new System.Drawing.Point(74, 47);
+            this.KMeansIterNumeric.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.KMeansIterNumeric.Name = "KMeansIterNumeric";
+            this.KMeansIterNumeric.Size = new System.Drawing.Size(80, 20);
+            this.KMeansIterNumeric.TabIndex = 4;
+            this.KMeansIterNumeric.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // CreateImageToolStripMenuItem
+            // 
+            this.CreateImageToolStripMenuItem.Name = "CreateImageToolStripMenuItem";
+            this.CreateImageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CreateImageToolStripMenuItem.Text = "Create Image";
+            this.CreateImageToolStripMenuItem.Click += new System.EventHandler(this.CreateImageToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -466,15 +541,18 @@ namespace ColorReductionMethods
             this.InputLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SourceImageOutput)).EndInit();
             this.ControlsLayout.ResumeLayout(false);
-            this.KGroupBox.ResumeLayout(false);
-            this.KGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.KNumeric)).EndInit();
-            this.KrgbGroupBox.ResumeLayout(false);
-            this.KrgbGroupBox.PerformLayout();
+            this.KMeansGroup.ResumeLayout(false);
+            this.KMeansGroup.PerformLayout();
+            this.DitheringGroupBox.ResumeLayout(false);
+            this.DitheringGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KbNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KgNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KrNumeric)).EndInit();
-            this.ButtonGroup.ResumeLayout(false);
+            this.PopularityBox.ResumeLayout(false);
+            this.PopularityBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PopularityKNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KMeansKNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KMeansIterNumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -497,22 +575,27 @@ namespace ColorReductionMethods
         private System.Windows.Forms.TableLayoutPanel InputLayout;
         private System.Windows.Forms.PictureBox SourceImageOutput;
         private System.Windows.Forms.FlowLayoutPanel ControlsLayout;
-        private System.Windows.Forms.GroupBox KrgbGroupBox;
+        private System.Windows.Forms.GroupBox DitheringGroupBox;
         private System.Windows.Forms.Label KbLabel;
         private System.Windows.Forms.Label KgLabel;
         private System.Windows.Forms.Label KrLabel;
         private System.Windows.Forms.NumericUpDown KbNumeric;
         private System.Windows.Forms.NumericUpDown KgNumeric;
         private System.Windows.Forms.NumericUpDown KrNumeric;
-        private System.Windows.Forms.GroupBox KGroupBox;
-        private System.Windows.Forms.Label KLabel;
-        private System.Windows.Forms.NumericUpDown KNumeric;
-        private System.Windows.Forms.GroupBox ButtonGroup;
+        private System.Windows.Forms.GroupBox PopularityBox;
+        private System.Windows.Forms.Label PopularityKLabel;
+        private System.Windows.Forms.NumericUpDown PopularityKNumeric;
+        private System.Windows.Forms.GroupBox KMeansGroup;
         private System.Windows.Forms.Button PopularityButton;
         private System.Windows.Forms.Button FloydButton;
         private System.Windows.Forms.Button KMeansButton;
         private System.Windows.Forms.Button BurkesButton;
         private System.Windows.Forms.Button StuckyButton;
+        private System.Windows.Forms.NumericUpDown KMeansIterNumeric;
+        private System.Windows.Forms.NumericUpDown KMeansKNumeric;
+        private System.Windows.Forms.Label KMeansIterLabel;
+        private System.Windows.Forms.Label KMeansKLabel;
+        private System.Windows.Forms.ToolStripMenuItem CreateImageToolStripMenuItem;
     }
 }
 

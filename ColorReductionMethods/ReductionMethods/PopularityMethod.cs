@@ -86,7 +86,7 @@ namespace ColorReductionMethods.ReductionMethods
             int bestIndex = -1;
             for (int i = 0; i < PaletteSize; i++)
             {
-                int distance = ColorDistanceSquared(color, Palette[i]);
+                int distance = Helpers.ColorDistanceSquared(color, Palette[i]);
                 if (distance < bestDistance)
                 {
                     bestDistance = distance;
@@ -96,13 +96,7 @@ namespace ColorReductionMethods.ReductionMethods
             return bestIndex;
         }
 
-        /// <summary>
-        /// Calculates distance between two colors in euclidian RGB space.
-        /// </summary>
-        private static int ColorDistanceSquared(Color a, Color b)
-        {
-            return (a.R - b.R) * (a.R - b.R) + (a.G - b.G) * (a.G - b.G) + (a.G - b.G) * (a.G - b.G);
-        }
+
 
         /// <summary>
         /// Reverse sort by value in bucket.
