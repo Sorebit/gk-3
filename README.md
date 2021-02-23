@@ -1,7 +1,15 @@
-# GK projekt 3: Algorytmy redukcji kolorów
+# Uni computer graphics course - Project 3: Color reduction algorithms
 
-Algorytmy redukcji kolorów: metoda propagacji błedu, algorytm popularnościowy, K-średnich
+- Error diffusion dithering
+- Popularity method
+- K-means (bad and slow)
+
+### TODO
+
+- Fix K-means
+- Speed up popularity method
+- Add export
 
 ## Links
 
-- http://mini.pw.edu.pl/~kotowski/
+- [Course site](http://mini.pw.edu.pl/~kotowski/)
